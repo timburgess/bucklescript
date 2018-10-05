@@ -2279,41 +2279,40 @@ function update_loop(canvas, param, map_dim) {
 function keydown(evt) {
   var match = evt.keyCode;
   if (match >= 41) {
-    var switcher = match - 65 | 0;
-    if (!(switcher > 22 || switcher < 0)) {
-      switch (switcher) {
-        case 0 : 
+    if (!(match > 87 || match < 65)) {
+      switch (match) {
+        case 65 : 
             pressed_keys[/* left */0] = true;
             break;
-        case 1 : 
+        case 66 : 
             pressed_keys[/* bbox */4] = (pressed_keys[/* bbox */4] + 1 | 0) % 2;
             break;
-        case 3 : 
+        case 68 : 
             pressed_keys[/* right */1] = true;
             break;
-        case 18 : 
+        case 83 : 
             pressed_keys[/* down */3] = true;
             break;
-        case 2 : 
-        case 4 : 
-        case 5 : 
-        case 6 : 
-        case 7 : 
-        case 8 : 
-        case 9 : 
-        case 10 : 
-        case 11 : 
-        case 12 : 
-        case 13 : 
-        case 14 : 
-        case 15 : 
-        case 16 : 
-        case 17 : 
-        case 19 : 
-        case 20 : 
-        case 21 : 
+        case 67 : 
+        case 69 : 
+        case 70 : 
+        case 71 : 
+        case 72 : 
+        case 73 : 
+        case 74 : 
+        case 75 : 
+        case 76 : 
+        case 77 : 
+        case 78 : 
+        case 79 : 
+        case 80 : 
+        case 81 : 
+        case 82 : 
+        case 84 : 
+        case 85 : 
+        case 86 : 
             break;
-        case 22 : 
+        case 87 : 
             pressed_keys[/* up */2] = true;
             break;
         

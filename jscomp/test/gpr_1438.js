@@ -3,38 +3,37 @@
 
 function actionKey(key, a, b, c, d, e) {
   var exit = 0;
-  var switcher = key - 98 | 0;
-  if (switcher > 20 || switcher < 0) {
+  if (key > 118 || key < 98) {
     exit = 1;
   } else {
-    switch (switcher) {
-      case 0 : 
+    switch (key) {
+      case 98 : 
           return c;
-      case 8 : 
+      case 106 : 
           return d;
-      case 9 : 
+      case 107 : 
           return e;
-      case 18 : 
+      case 116 : 
           return b;
-      case 2 : 
-      case 3 : 
-      case 4 : 
-      case 5 : 
-      case 6 : 
-      case 7 : 
-      case 10 : 
-      case 11 : 
-      case 12 : 
-      case 13 : 
-      case 14 : 
-      case 15 : 
-      case 16 : 
-      case 17 : 
-      case 19 : 
+      case 100 : 
+      case 101 : 
+      case 102 : 
+      case 103 : 
+      case 104 : 
+      case 105 : 
+      case 108 : 
+      case 109 : 
+      case 110 : 
+      case 111 : 
+      case 112 : 
+      case 113 : 
+      case 114 : 
+      case 115 : 
+      case 117 : 
           exit = 1;
           break;
-      case 1 : 
-      case 20 : 
+      case 99 : 
+      case 118 : 
           return a;
       
     }

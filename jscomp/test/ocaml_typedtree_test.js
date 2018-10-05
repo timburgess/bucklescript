@@ -668,8 +668,7 @@ function loop(i) {
 var letter_all = loop(104);
 
 function letter(param) {
-  var switcher = param - 97 | 0;
-  if (switcher > 25 || switcher < 0) {
+  if (param > 122 || param < 97) {
     throw [
           Caml_builtin_exceptions.assert_failure,
           /* tuple */[
@@ -679,10 +678,10 @@ function letter(param) {
           ]
         ];
   } else {
-    switch (switcher) {
-      case 0 : 
+    switch (param) {
+      case 97 : 
           return letter_all;
-      case 2 : 
+      case 99 : 
           return /* :: */[
                   1,
                   /* :: */[
@@ -690,22 +689,22 @@ function letter(param) {
                     /* [] */0
                   ]
                 ];
-      case 3 : 
+      case 100 : 
           return /* :: */[
                   3,
                   /* [] */0
                 ];
-      case 4 : 
+      case 101 : 
           return /* :: */[
                   4,
                   /* [] */0
                 ];
-      case 5 : 
+      case 102 : 
           return /* :: */[
                   5,
                   /* [] */0
                 ];
-      case 10 : 
+      case 107 : 
           return /* :: */[
                   32,
                   /* :: */[
@@ -731,32 +730,32 @@ function letter(param) {
                     ]
                   ]
                 ];
-      case 11 : 
+      case 108 : 
           return /* :: */[
                   6,
                   /* [] */0
                 ];
-      case 12 : 
+      case 109 : 
           return /* :: */[
                   7,
                   /* [] */0
                 ];
-      case 15 : 
+      case 112 : 
           return /* :: */[
                   8,
                   /* [] */0
                 ];
-      case 17 : 
+      case 114 : 
           return /* :: */[
                   9,
                   /* [] */0
                 ];
-      case 18 : 
+      case 115 : 
           return /* :: */[
                   10,
                   /* [] */0
                 ];
-      case 20 : 
+      case 117 : 
           return /* :: */[
                   11,
                   /* :: */[
@@ -764,23 +763,23 @@ function letter(param) {
                     /* [] */0
                   ]
                 ];
-      case 21 : 
+      case 118 : 
           return /* :: */[
                   13,
                   /* [] */0
                 ];
-      case 1 : 
-      case 6 : 
-      case 7 : 
-      case 8 : 
-      case 9 : 
-      case 13 : 
-      case 14 : 
-      case 16 : 
-      case 19 : 
-      case 22 : 
+      case 98 : 
+      case 103 : 
+      case 104 : 
+      case 105 : 
+      case 106 : 
+      case 110 : 
+      case 111 : 
+      case 113 : 
+      case 116 : 
+      case 119 : 
           return /* [] */0;
-      case 23 : 
+      case 120 : 
           return /* :: */[
                   14,
                   /* :: */[
@@ -821,12 +820,12 @@ function letter(param) {
                     ]
                   ]
                 ];
-      case 24 : 
+      case 121 : 
           return /* :: */[
                   26,
                   /* [] */0
                 ];
-      case 25 : 
+      case 122 : 
           return /* :: */[
                   27,
                   /* [] */0
@@ -68930,24 +68929,23 @@ function report_error$5(ppf, param) {
           var suffix = function (n) {
             var teen = (n % 100 / 10 | 0) === 1;
             var match = n % 10;
-            var switcher = match - 1 | 0;
-            if (switcher > 2 || switcher < 0) {
+            if (match > 3 || match < 1) {
               return "th";
             } else {
-              switch (switcher) {
-                case 0 : 
+              switch (match) {
+                case 1 : 
                     if (teen) {
                       return "th";
                     } else {
                       return "st";
                     }
-                case 1 : 
+                case 2 : 
                     if (teen) {
                       return "th";
                     } else {
                       return "nd";
                     }
-                case 2 : 
+                case 3 : 
                     if (teen) {
                       return "th";
                     } else {
