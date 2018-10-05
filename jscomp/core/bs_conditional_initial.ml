@@ -25,7 +25,7 @@
 
 let setup_env () =
 #if BS_DEBUG then
-    Js_config.set_debug_file "int_switch_test.ml";
+    Js_config.set_debug_file "complex_if_test.ml";
 #end
   Lexer.replace_directive_bool "BS" true;
   Lexer.replace_directive_string "BS_VERSION"  Bs_version.version

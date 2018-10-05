@@ -17,18 +17,15 @@ function b(loc, x) {
 
 function f(x) {
   var match = Curry._1(x, /* () */0);
-  if (match > 3 || match < 1) {
-    return /* "x" */120;
-  } else {
-    switch (match) {
-      case 1 : 
-          return /* "a" */97;
-      case 2 : 
-          return /* "b" */98;
-      case 3 : 
-          return /* "c" */99;
-      
-    }
+  switch (match) {
+    case 1 : 
+        return /* "a" */97;
+    case 2 : 
+        return /* "b" */98;
+    case 3 : 
+        return /* "c" */99;
+    default:
+      return /* "x" */120;
   }
 }
 

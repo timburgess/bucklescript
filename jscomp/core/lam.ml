@@ -640,6 +640,7 @@ let if_ (a : t) (b : t) c =
       | Const_float_array _
       | Const_immstring _ -> b
     end
+  
   | _ -> 
     
     begin match  b, c with 
@@ -653,7 +654,20 @@ let if_ (a : t) (b : t) c =
       | Some loc ->  not_ loc a 
       | None -> Lifthenelse (a,b,c))     
     | _ -> 
-      Lifthenelse (a,b,c)
+      (match a with 
+       | Lprim {primitive = Pisout; args = [Lconst(Const_int range); Lvar xx] } 
+         -> 
+         begin match c with 
+           | Lswitch (Lvar yy, 
+                      ({sw_blocks = []; sw_numblocks = true; sw_consts ;
+                       sw_numconsts; sw_failaction = None} as body)
+                     )
+             when Ident.same xx yy  ->  (* && Ext_list.lengt sw_consts FIXME *)
+             Lswitch(Lvar yy, 
+                     { body with sw_failaction = Some b; sw_numconsts = false })
+           |  _ -> Lifthenelse(a,b,c)      
+         end
+       | _ ->  Lifthenelse (a,b,c))
      
   end 
 

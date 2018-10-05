@@ -724,7 +724,25 @@ let convert (exports : Ident_set.t) (lam : Lambda.lambda) : t * Lam_module_ident
                      Ext_list.map sw_consts 
                        (fun (i,act) -> i - offset, act)
                   }) 
-
+          | Alias, Lprim {primitive = Poffsetint offset; args =  [Lvar _ as matcher ]},
+            Lswitch (Lvar switcher3 ,
+                       ({
+                         sw_numconsts ; 
+                         sw_consts;
+                         sw_blocks = []; sw_numblocks = true;
+                         sw_failaction = Some ifso
+                       } as px)
+                      ) 
+            when Ident.same switcher3 id    &&
+            not (Lam_hit.hit_variable id ifso ) && 
+            not (Ext_list.exists_snd sw_consts (Lam_hit.hit_variable id))
+            -> 
+              (Lam.switch matcher 
+                  {px with 
+                   sw_consts = 
+                     Ext_list.map sw_consts 
+                       (fun (i,act) -> i - offset, act)
+                  }) 
           | _ -> 
             Lam.let_ kind id new_e new_body
       end
