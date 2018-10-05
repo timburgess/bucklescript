@@ -145,7 +145,7 @@ function string_of_chars(x) {
 Mt.from_pair_suites("string_test.ml", /* :: */[
       /* tuple */[
         "mutliple switch",
-        (function () {
+        (function (param) {
             return /* Eq */Block.__(0, [
                       9,
                       ff("4")
@@ -155,7 +155,7 @@ Mt.from_pair_suites("string_test.ml", /* :: */[
       /* :: */[
         /* tuple */[
           "int switch",
-          (function () {
+          (function (param) {
               return /* Eq */Block.__(0, [
                         9,
                         gg(4)
@@ -165,7 +165,7 @@ Mt.from_pair_suites("string_test.ml", /* :: */[
         /* :: */[
           /* tuple */[
             "escape_normal",
-            (function () {
+            (function (param) {
                 return /* Eq */Block.__(0, [
                           "haha",
                           $$String.escaped("haha")
@@ -175,7 +175,7 @@ Mt.from_pair_suites("string_test.ml", /* :: */[
           /* :: */[
             /* tuple */[
               "escape_bytes",
-              (function () {
+              (function (param) {
                   return /* Eq */Block.__(0, [
                             Bytes.of_string("haha"),
                             Bytes.escaped(Bytes.of_string("haha"))
@@ -185,7 +185,7 @@ Mt.from_pair_suites("string_test.ml", /* :: */[
             /* :: */[
               /* tuple */[
                 "escape_quote",
-                (function () {
+                (function (param) {
                     return /* Eq */Block.__(0, [
                               "\\\"\\\"",
                               $$String.escaped("\"\"")
@@ -195,7 +195,7 @@ Mt.from_pair_suites("string_test.ml", /* :: */[
               /* :: */[
                 /* tuple */[
                   "rev_split_by_char",
-                  (function () {
+                  (function (param) {
                       return /* Eq */Block.__(0, [
                                 /* :: */[
                                   "",
@@ -214,7 +214,7 @@ Mt.from_pair_suites("string_test.ml", /* :: */[
                 /* :: */[
                   /* tuple */[
                     "File \"string_test.ml\", line 74, characters 2-9",
-                    (function () {
+                    (function (param) {
                         return /* Eq */Block.__(0, [
                                   /* :: */[
                                     "aaaa",
@@ -227,7 +227,7 @@ Mt.from_pair_suites("string_test.ml", /* :: */[
                   /* :: */[
                     /* tuple */[
                       "xsplit",
-                      (function () {
+                      (function (param) {
                           return /* Eq */Block.__(0, [
                                     /* :: */[
                                       "a",
@@ -246,7 +246,7 @@ Mt.from_pair_suites("string_test.ml", /* :: */[
                     /* :: */[
                       /* tuple */[
                         "split_empty",
-                        (function () {
+                        (function (param) {
                             return /* Eq */Block.__(0, [
                                       /* [] */0,
                                       Ext_string_test.split(undefined, "", /* "_" */95)
@@ -256,7 +256,7 @@ Mt.from_pair_suites("string_test.ml", /* :: */[
                       /* :: */[
                         /* tuple */[
                           "split_empty2",
-                          (function () {
+                          (function (param) {
                               return /* Eq */Block.__(0, [
                                         /* :: */[
                                           "test_unsafe_obj_ffi_ppx.cmi",
@@ -269,7 +269,7 @@ Mt.from_pair_suites("string_test.ml", /* :: */[
                         /* :: */[
                           /* tuple */[
                             "rfind",
-                            (function () {
+                            (function (param) {
                                 return /* Eq */Block.__(0, [
                                           7,
                                           Ext_string_test.rfind("__", "__index__js")
@@ -279,7 +279,7 @@ Mt.from_pair_suites("string_test.ml", /* :: */[
                           /* :: */[
                             /* tuple */[
                               "rfind_2",
-                              (function () {
+                              (function (param) {
                                   return /* Eq */Block.__(0, [
                                             0,
                                             Ext_string_test.rfind("__", "__index_js")
@@ -289,7 +289,7 @@ Mt.from_pair_suites("string_test.ml", /* :: */[
                             /* :: */[
                               /* tuple */[
                                 "rfind_3",
-                                (function () {
+                                (function (param) {
                                     return /* Eq */Block.__(0, [
                                               -1,
                                               Ext_string_test.rfind("__", "_index_js")
@@ -299,7 +299,7 @@ Mt.from_pair_suites("string_test.ml", /* :: */[
                               /* :: */[
                                 /* tuple */[
                                   "find",
-                                  (function () {
+                                  (function (param) {
                                       return /* Eq */Block.__(0, [
                                                 0,
                                                 Ext_string_test.find(undefined, "__", "__index__js")
@@ -309,7 +309,7 @@ Mt.from_pair_suites("string_test.ml", /* :: */[
                                 /* :: */[
                                   /* tuple */[
                                     "find_2",
-                                    (function () {
+                                    (function (param) {
                                         return /* Eq */Block.__(0, [
                                                   6,
                                                   Ext_string_test.find(undefined, "__", "_index__js")
@@ -319,7 +319,7 @@ Mt.from_pair_suites("string_test.ml", /* :: */[
                                   /* :: */[
                                     /* tuple */[
                                       "find_3",
-                                      (function () {
+                                      (function (param) {
                                           return /* Eq */Block.__(0, [
                                                     -1,
                                                     Ext_string_test.find(undefined, "__", "_index_js")
@@ -329,7 +329,7 @@ Mt.from_pair_suites("string_test.ml", /* :: */[
                                     /* :: */[
                                       /* tuple */[
                                         "of_char",
-                                        (function () {
+                                        (function (param) {
                                             return /* Eq */Block.__(0, [
                                                       String.fromCharCode(/* "0" */48),
                                                       Caml_string.bytes_to_string(Bytes.make(1, /* "0" */48))
@@ -339,7 +339,7 @@ Mt.from_pair_suites("string_test.ml", /* :: */[
                                       /* :: */[
                                         /* tuple */[
                                           "of_chars",
-                                          (function () {
+                                          (function (param) {
                                               return /* Eq */Block.__(0, [
                                                         string_of_chars(/* :: */[
                                                               /* "0" */48,

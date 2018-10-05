@@ -30,7 +30,6 @@ external sub : 'a array -> int -> int -> 'a array = "caml_array_sub"
 
 let rec app f args = 
   let arity = function_length f in
-  let arity = if arity = 0 then 1 else arity in (* TOOD: optimize later *) 
   let len = Array.length args in
   let d = arity - len in 
   if d = 0 then 
@@ -59,7 +58,7 @@ let generate_case
          Printf.sprintf "apply%d (Obj.magic o) %s"
            arity (String.concat " " args)
        else
-       if arity = 0 then
+       (* if arity = 0 then
          match args with
          | first_arg :: [] ->
            Printf.sprintf "apply1 (Obj.magic o) %s" first_arg
@@ -67,7 +66,7 @@ let generate_case
            Printf.sprintf "app (apply1 (Obj.magic o) %s) [|%s|] "
              first_arg (String.concat ";" rest)
          | _ -> assert false            
-       else
+       else *)
          Printf.sprintf
            "app (apply%d (Obj.magic o) %s) [|%s|]"
            arity
@@ -122,7 +121,8 @@ let __%d o =
     args_string
     (String.concat "\n  |"
 
-       (list_init number (fun arity -> generate_case ~arity ~args_number args_array args)
+       (list_init (number - 1) 
+          (fun arity -> generate_case ~arity:(arity + 1) ~args_number args_array args)
         @ [ generate_case ~args_number args_array args]          
        )
     )
